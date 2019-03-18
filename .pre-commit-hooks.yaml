@@ -4,10 +4,7 @@
   description: Check prometheus config files
   language: docker_image
   entry: --entrypoint /bin/promtool prom/prometheus:latest
-  files: >
-    (?x)^(
-        ""
-    )$
+  files: ^$
   args:
   - check
   - config
@@ -18,10 +15,7 @@
   description: Check prometheus rule files
   language: docker_image
   entry: --entrypoint /bin/promtool prom/prometheus:latest
-  files: >
-    (?x)^(
-        ""
-    )$
+  files: ^$
   args:
   - check
   - rules
