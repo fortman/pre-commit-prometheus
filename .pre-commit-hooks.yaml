@@ -1,4 +1,5 @@
 - id: check-config
+  stages: [commit]
   name: Check prometheus config files
   description: Check prometheus config files
   language: docker_image
@@ -9,7 +10,7 @@
     )$
   args:
   - check
-  - rules
+  - config
 
 - id: check-rules
   stages: [commit]
