@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v1.3.0
+  rev: v2.1.0
   hooks:
   # Git state
   - id: check-merge-conflict
@@ -38,8 +38,3 @@ repos:
   rev: v1.1.1
   hooks:
   - id: sign-commit
-- repo: https://github.com/detailyang/pre-commit-shell
-  rev: 1.0.4
-  hooks:
-  - id: shell-lint
-    stages: [commit]

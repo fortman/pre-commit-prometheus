@@ -1,22 +1,26 @@
 - id: check-config
   name: Check prometheus config files
   description: Check prometheus config files
-  entry: bin/check-config-wrapper.sh
-  language: script
-  pass_filenames: true
-  types: ['file']
-  verbose: true
+  language: docker_image
+  entry: --entrypoint /bin/promtool prom/prometheus:latest
+  files: >
+    (?x)^(
+        ""
+    )$
   args:
-  # prometheus docker tag, default latest
-  - latest
+  - check
+  - rules
+
 - id: check-rules
+  stages: [commit]
   name: Check prometheus rule files
   description: Check prometheus rule files
-  entry: bin/check-rules-wrapper.sh
-  language: script
-  pass_filenames: true
-  types: ['file']
-  verbose: true
+  language: docker_image
+  entry: --entrypoint /bin/promtool prom/prometheus:latest
+  files: >
+    (?x)^(
+        ""
+    )$
   args:
-  # prometheus docker tag, default latest
-  - latest
+  - check
+  - rules
