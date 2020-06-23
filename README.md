@@ -30,7 +30,7 @@ To lint Prometheus Config files, use the `prometheus-config` hook.  Make sure to
             config_directory/.*\.yml
           )$
 
-To unit-test Prometheus Rule files, use the `test-config` hook.  Make sure to filter files passed to hook by defining the `files` section.  Note: the `entry` option below is optional and will default to the latest prometheus version.  It is shown just as an example of pinning to a specific prometheus version.
+To unit-test Prometheus Rule files, use the `test-rules` hook.  Make sure to filter files passed to hook by defining the `files` section.  Note: the `entry` option below is optional and will default to the latest prometheus version.  It is shown just as an example of pinning to a specific prometheus version.
 
     - repo: https://github.com/fortman/pre-commit-prometheus
       rev: v1.2.0
