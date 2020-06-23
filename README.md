@@ -32,11 +32,14 @@ To lint Prometheus Config files, use the `prometheus-config` hook.  Make sure to
 
 To unit-test Prometheus Rule files, use the `test-rules` hook.  Make sure to filter files passed to hook by defining the `files` section.  Note: the `entry` option below is optional and will default to the latest prometheus version.  It is shown just as an example of pinning to a specific prometheus version.
 
+In the example provided, we are setting this to always run as rule files could be changed without altering the unit tests.  Unit tests should be run against their respective rule files after any change.
+
     - repo: https://github.com/fortman/pre-commit-prometheus
       rev: v1.2.0
       hooks:
       - id: test-rules
         entry: --entrypoint /bin/promtool prom/prometheus:v2.18.2
+        always_run: true
         files: >
           (?x)^(
             unit_test_directory/.*\.yml
