@@ -24,16 +24,10 @@ repos:
   # Language syntax/formatting
   - id: check-yaml
     stages: [commit]
-- repo: local
+- repo: https://github.com/mattlqx/pre-commit-ruby
+  rev: v1.3.3
   hooks:
   - id: rubocop
-    name: Check Ruby style with rubocop
-    description: Enforce Ruby style guide with rubocop
-    entry: bin/rubocop-wrapper.sh
-    language: script
-    types: ['ruby']
-    stages: [commit]
-    verbose: true
 - repo: https://github.com/mattlqx/pre-commit-sign
   rev: v1.1.1
   hooks:

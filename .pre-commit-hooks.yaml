@@ -30,3 +30,18 @@
   args:
   - test
   - rules
+
+- id: check-coverage
+  stages: [commit]
+  name: Coverage of unit test prometheus rule files
+  description: Coverage of unit test prometheus rule files
+  language: script
+  entry: bin/prom_coverage.rb
+  pass_filenames: false
+  always_run: true
+  args:
+    - prometheus/alerts
+    - prometheus/unit-tests
+    - '80'
+    - unused_alerts.yml
+    - whytest.yml
