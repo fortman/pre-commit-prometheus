@@ -30,3 +30,22 @@
   args:
   - test
   - rules
+
+- id: check-coverage
+  stages: [commit]
+  name: Coverage of unit test prometheus rule files
+  description: Coverage of unit test prometheus rule files
+  language: script
+  entry: bin/prom_coverage.rb
+  type: [ruby]
+  args:
+    - ../chef-cookbooks/cookbooks/pprometheus_v2/files/default/alerts
+    - ../chef-cookbooks/cookbooks/pprometheus_v2/files/default/unit-tests
+    - '80'
+    - rabbitmq.yml
+    - redis.yml
+    - postgres.yml
+    - win_systems.yml
+    - vmware.yml
+    - networking.yml
+    - stparser-assets.yml
