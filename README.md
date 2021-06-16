@@ -44,3 +44,15 @@ In the example provided, we are setting this to always run as rule files could b
           (?x)^(
             unit_test_directory/.*\.yml
           )$
+
+To lint Alertmanager Config files, use the `alertmanager-config` hook.  Make sure to filter files passed to hook by defining the `files` section.  Note: the `entry` option below is optional and will default to the latest alertmanager version.  It is shown just as an example of pinning to a specific alertmanager version.
+
+    - repo: https://github.com/fortman/pre-commit-prometheus
+      rev: v1.1.1
+      hooks:
+      - id: check-alertmanager-config
+        entry: --entrypoint /bin/amtool prom/alertmanager:v0.21.0
+        files: >
+          (?x)^(
+            config_directory/.*\.yml
+          )$          
