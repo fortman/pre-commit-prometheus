@@ -30,3 +30,13 @@
   args:
   - test
   - rules
+
+- id: check-alertmanager-config
+  stages: [commit]
+  name: Check alertmanager config files
+  description: Check alertmanager config files
+  language: docker_image
+  entry: --entrypoint /bin/amtool prom/alertmanager:latest
+  files: ^$
+  args:
+  - check-config  
